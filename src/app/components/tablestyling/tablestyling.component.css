@@ -1,0 +1,44 @@
+.filter-button{
+  display: flex;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+td, th {
+  width: 25%;
+}
+
+section {
+  display: table;
+  margin:1% 0 0 80%;
+}
+
+.btnTable {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+.edit{
+  background-color: #2b4ad6;
+  height: 35px;
+  width: 35px;
+  margin: 0 5px;
+}
+
+.delete{
+  background-color: #e63434;
+  height: 35px;
+  width: 35px;
+}
+
+.mat-icon {
+  font-size: 17px;
+}
