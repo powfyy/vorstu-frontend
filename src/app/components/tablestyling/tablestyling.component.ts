@@ -7,6 +7,8 @@ import { Student } from 'src/app/models/student';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditWrapperComponent } from '../student-editor/dialog-edit-wrapper/dialog-edit-wrapper.component';
 import { DialogUpdateWrapperComponent } from '../student-editor/dialog-update-wrapper/dialog-update-wrapper.component';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +24,8 @@ export class TablestylingComponent implements OnInit,AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private baseService:BaseServiceService, public dialog: MatDialog) {
+  constructor(private baseService:BaseServiceService, public dialog: MatDialog, private token: TokenStorageService,
+    private router: Router) {
     this.dataSource=new MatTableDataSource<Student>();
   }
 
@@ -35,6 +38,13 @@ export class TablestylingComponent implements OnInit,AfterViewInit {
     this.baseService.getAllStudents().subscribe(data => {
       this.dataSource.data = data;
     });
+  }
+  isStudentAuthenticated() {
+    if (this.token.getAuthorities().includes("STUDENT")) {
+      debugger
+      return true;
+    }
+    return false;
   }
 
   ngAfterViewInit() {
@@ -49,7 +59,10 @@ export class TablestylingComponent implements OnInit,AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  LogOut(){
+    this.token.signOut();
+    this.router.navigate(['login']);
+  }
   addNewStudent() {
     const dialogAddingNewStudent = this.dialog.open(DialogEditWrapperComponent, {
       width: '400px',

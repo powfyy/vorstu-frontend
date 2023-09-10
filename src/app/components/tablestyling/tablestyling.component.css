@@ -1,5 +1,16 @@
-.filter-button{
+.filter-button {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter {
+  flex-grow: 1;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
 }
 
 table {
@@ -16,15 +27,11 @@ td, th {
   width: 25%;
 }
 
-section {
-  display: table;
-  margin:1% 0 0 80%;
-}
-
 .btnTable {
   color: #ffffff;
   display: flex;
   justify-content: center;
+  padding: 6px ;
 }
 .edit{
   background-color: #2b4ad6;
@@ -41,4 +48,12 @@ section {
 
 .mat-icon {
   font-size: 17px;
+}
+
+.th-action {
+  padding-left: 2%;
+}
+
+td.btnTable {
+  width: 73%;
 }

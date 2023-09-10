@@ -21,6 +21,11 @@ import { MatTableModule } from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from 'src/app-routing.module';
 
 
 @NgModule({
@@ -28,7 +33,9 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     DialogEditWrapperComponent,
     DialogUpdateWrapperComponent,
-    TablestylingComponent
+    TablestylingComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
+    AppRoutingModule,
     // HttpClientInMemoryWebApiModule.forRoot(
     //   InMemoryDataService, { dataEncapsulation: false }
     // ),
@@ -46,10 +54,12 @@ import {MatButtonModule} from '@angular/material/button';
     MatSortModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    RouterModule
   ],
 
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

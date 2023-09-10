@@ -1,0 +1,19 @@
+  <div class="container">
+    <h1 mat-title class="title">Sign In</h1>
+    <div mat-content class="content">
+      <mat-form-field class="input">
+        <input matInput type="text" placeholder="Login" [(ngModel)]="form.username" required>
+        <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input matInput type="text" placeholder="Password" [(ngModel)]="form.password" required>
+        <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+      </mat-form-field>
+      <mat-error class="errorMessageLogin" *ngIf="errorMessageLogin">{{ errorMessageLogin }}</mat-error>
+    </div>
+    <div mat-actions class="actions">
+      <button mat-raised-button color="primary" class="btn signin" (click)="onSubmit()">Login</button>
+      <button mat-raised-button color="primary" class="btn signup" (click)="goSignUp()">Sign Up</button>
+    </div>
+  </div>
+

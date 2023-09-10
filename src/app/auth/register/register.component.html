@@ -1,0 +1,30 @@
+<div *ngIf="isSignedUp; else signupForm">
+  Your registration is successful. Please login!
+</div>
+
+<ng-template #signupForm>
+  <div class="container">
+    <h1 mat-title class="title">Registration</h1>
+    <div mat-content class="content">
+      <mat-form-field class="input">
+        <input matInput type="text" placeholder="Login" [(ngModel)]="form.username" required>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input matInput type="text" placeholder="Password" [(ngModel)]="form.password" required>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input matInput type="text" placeholder="FIO" [(ngModel)]="form.fio" required>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input matInput type="text" placeholder="group" [(ngModel)]="form.group" required>
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input matInput type="number" placeholder="phoneNumber" [(ngModel)]="form.phoneNumber" required>
+      </mat-form-field>
+    </div>
+    <div mat-actions class="actions">
+      <button mat-raised-button color="primary" class="btn register" (click)="goRegister()">Register</button>
+    </div>
+  </div>
+</ng-template>
+

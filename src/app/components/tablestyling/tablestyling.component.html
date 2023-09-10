@@ -1,13 +1,14 @@
 <div class="filter-button">
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-</mat-form-field>
-<section>
-  <div class="button-row">
-    <button mat-raised-button color="primary" (click)="addNewStudent()">Add Student</button>
+  <div class="filter">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
   </div>
-</section>
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="addNewStudent()" *ngIf="!isStudentAuthenticated()">Add Student</button>
+    <button mat-raised-button (click)="LogOut()">Log Out</button>
+  </div>
 </div>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
@@ -41,9 +42,9 @@
         <button mat-mini-fab class="edit" (click)="editStudent(row)">
           <mat-icon>border_color</mat-icon>
         </button>
-        <button mat-mini-fab class="delete" (click)="deleteStudent(row)">
-          <mat-icon>delete</mat-icon>
-        </button>
+          <button mat-mini-fab class="delete" (click)="deleteStudent(row)" [disabled]="isStudentAuthenticated()">
+            <mat-icon>delete</mat-icon>
+          </button>
       </td>
     </ng-container>
 

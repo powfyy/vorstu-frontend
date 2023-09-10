@@ -1,0 +1,38 @@
+.container {
+  border: 1px solid #ccc;
+  padding: 0 0 20px 0;
+  border-radius: 4px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, sans-serif
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  width: 45vh;
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0 34vh;
+}
+
+.btn {
+  margin:4vh 10vh 0 10vh;
+
+}
+
+
+
+.btn:hover {
+  opacity: 0.8;
+}
